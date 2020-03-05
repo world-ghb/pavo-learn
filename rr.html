@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+
+		function Person(name,age) {
+			this.name = name;
+			this.age = age;
+			this.chang = function(){
+				this.name=name;
+				this.age=age;
+			}
+		}
+		var ss = new Person();
+		console.log(ss('mike','39'));
+
+	</script>
+
+</body>
+</html>

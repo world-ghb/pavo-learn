@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+		<script type="text/javascript">
+			function a(){
+
+			}
+			var glob = 100;
+			a()
+// 			第一步
+// 			创建时候a.[[scope]]-->a.1 go.
+// 0
+// 			第二部
+// 			执行时候a.[[scope]]-->a.0 AO，作用域链
+// 			创建时候a.[[scope]]-->a.1 go.
+
+
+			// test.prototype
+			// test.[[scope]],执行器上下文集合 GO AO，作用域链
+
+			function a(){
+				function b(){
+					b=234;
+				}
+				var a = 123;
+				b();
+				console.log(a);
+			}
+			var glob=100;
+			a();
+			//b被穿件时候继承a.[[scope]]
+			//b被执行时是在a.[[scope]]置顶0位置。
+			//b包：内部函数被保存到外部并应用，就是B包
+				// function a(){
+				// 	function b(){
+				// 		var bb=234;
+				// 		document.write(aaa);
+				// 	}
+				// 	var aaa=123;
+				// 	return b;
+				// }
+				// var glob=100;
+				// var demo=a();
+				// demo();
+				// function a(){
+				// 	var num =100;
+				// 	function b(){
+				// 		num ++;
+				// 		console.log(num);
+				// 	}
+				// 	return b;
+				// }	
+				//    var demo=a();
+				//    demo();
+				   // demo();
+				function eat(){
+					var food = "apple";
+					var obj = {
+						eatfood:function(){
+							if (food !=""){
+								console.log("i am eating" + food);
+								food = "";
+							}else {
+								console.log("there is nothing empey");
+							}
+						},
+						pushfood:function(myfood){
+							food = myfood;
+						}
+					}
+					return obj;
+				}
+				var person = eat();
+				person.eatfood();
+				person.eatfood();
+				person.pushfood("banana");
+				person.eatfood();
+		</script>
+</body>
+</html>
